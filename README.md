@@ -17,9 +17,10 @@ Currently, the repository contains a custom implementation of **Linear Regressio
 
 1. Clone this repository:
    git clone https://github.com/JavidanGanbarov/Implementing-Machine-Learning-Algorithms-from-Scratch.git
-   cd Implementing-Machine-Learning-Algorithms-from-Scratch
 
-2. Create a virtual environment (optional but recommended):
+    cd Implementing-Machine-Learning-Algorithms-from-Scratch
+
+3. Create a virtual environment (optional but recommended):
    python -m venv venv
    source venv/bin/activate
    On Windows: venv\Scripts\activate
