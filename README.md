@@ -5,11 +5,11 @@ This project is dedicated to implementing machine learning algorithms from scrat
 Currently, the repository contains a custom implementation of **Linear Regression**, with more algorithms to follow.
 
 ## Table of Contents
-- Installation
-- ML Algorithms
-- Usage
-- Contributing
-- License
+- [Installation](#installation-)
+- [ML Algorithms](#ml-algorithms-)
+- [Usage](#usage-️)
+- [Contributing](#contributing)
+- [License](#license-)
 
 ---
 
@@ -22,7 +22,7 @@ Currently, the repository contains a custom implementation of **Linear Regressio
 
 3. Create a virtual environment (optional but recommended):
    python -m venv venv
-   source venv/bin/activate
+   source venv/bin/activate  
    On Windows: venv\Scripts\activate
 
 4. Install dependencies:
@@ -51,7 +51,6 @@ Stay tuned for more algorithms in future updates!
 3. Modify datasets or parameters in the script as needed.
 
 ---
-
 
 ## License 📄
 
