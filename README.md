@@ -43,7 +43,7 @@ Stay tuned for more algorithms in future updates!
 ## Usage 🛠️
 
 1. Navigate to the directory of the desired algorithm:
-   cd algorithms/Linear2.py
+   cd Linear Regression from Scratch/Linear2.py
 
 2. Run the Python script to see the algorithm in action:
    python Linear2.py
