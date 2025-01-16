@@ -21,9 +21,10 @@ Currently, the repository contains a custom implementation of **Linear Regressio
 
 2. Create a virtual environment (optional but recommended):
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate
+   On Windows: venv\Scripts\activate
 
-3. Install dependencies:
+4. Install dependencies:
    pip install -r requirements.txt
 
 ---
@@ -32,7 +33,7 @@ Currently, the repository contains a custom implementation of **Linear Regressio
 
 This repository implements the following machine learning algorithms from scratch:
 
-- Linear Regression: https://github.com/JavidanGanbarov/Implementing-Machine-Learning-Algorithms-from-Scratch/blob/main/algorithms/Linear2.py
+- Linear Regression: https://github.com/JavidanGanbarov/Implementing-Machine-Learning-Algorithms-from-Scratch/blob/main/Linear_2.py
 
 Stay tuned for more algorithms in future updates!
 
@@ -41,10 +42,10 @@ Stay tuned for more algorithms in future updates!
 ## Usage 🛠️
 
 1. Navigate to the directory of the desired algorithm:
-   cd algorithms/linear_regression
+   cd algorithms/Linear2.py
 
 2. Run the Python script to see the algorithm in action:
-   python linear_regression.py
+   python Linear2.py
 
 3. Modify datasets or parameters in the script as needed.
 
