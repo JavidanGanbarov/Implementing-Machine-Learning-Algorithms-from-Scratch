@@ -33,7 +33,7 @@ Currently, the repository contains a custom implementation of **Linear Regressio
 
 This repository implements the following machine learning algorithms from scratch:
 
-- Linear Regression: https://github.com/JavidanGanbarov/Implementing-Machine-Learning-Algorithms-from-Scratch/blob/main/Linear_2.py
+- [Linear Regression](https://github.com/JavidanGanbarov/Implementing-Machine-Learning-Algorithms-from-Scratch/blob/main/Linear_2.py)
 
 Stay tuned for more algorithms in future updates!
 
