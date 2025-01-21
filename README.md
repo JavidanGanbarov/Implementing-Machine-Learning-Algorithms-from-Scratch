@@ -34,11 +34,20 @@ Currently, the repository contains a custom implementation of **Linear Regressio
 
 This repository implements the following machine learning algorithms from scratch:
 
-- [Linear Regression](https://github.com/JavidanGanbarov/Implementing-Machine-Learning-Algorithms-from-Scratch/blob/main/Linear%20Regression%20from%20Scratch/Linear2.py)
+- [Linear Regression](https://github.com/JavidanGanbarov/Implementing-Machine-Learning-Algorithms-from-Scratch/blob/main/Algorithms/linear_model.py)
 
 Stay tuned for more algorithms in future updates!
 
 ---
+
+## Metrics 📊
+
+To evaluate the performance of the implemented machine learning algorithms, the following metrics are commonly used. Each algorithm includes basic evaluation functions for measuring its effectiveness:
+1. Linear Regression Evaluation Metrics:
+
+    Mean Squared Error (MSE): Measures the average squared difference between the predicted and actual values. It helps determine how well the model fits the data.
+
+    R-squared (R²): Indicates how well the regression predictions approximate the real data points. The closer the R² value is to 1, the better the model fits the data.
 
 ## Usage 🛠️
 
