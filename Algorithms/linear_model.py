@@ -33,7 +33,6 @@ class SimpleLinearRegression:
     The final m and b values represent the best fit for the data.
     """
 
-
     def __init__(self, learning_rate=0.01, iterations=1000):
         self.learning_rate = learning_rate
         self.iterations = iterations
@@ -108,3 +107,77 @@ class SimpleLinearRegression:
 
 
 
+class LinearRegression:
+    """
+    Linear Regression: Used to model the linear relationship between independent variables (X)
+    and a dependent variable (y).
+
+    Model equation: y = Xw + b
+    Where:
+    w: Weights (coefficients for each independent variable),
+    b: Bias (intercept).
+
+    Step 1: Model Representation
+    Add a bias term to the input matrix X (augmentation with a column of ones).
+
+    Step 2: Optimization
+    Use the Normal Equation to compute the weights and bias:
+    w = (X^T * X)^(-1) * X^T * y
+    Where X^T is the transpose of X, and X^(-1) is the inverse.
+
+    Step 3: Predictions
+    For new inputs, the predictions are made using:
+    y_pred = X * w + b
+    """
+
+    def __init__(self):
+        """
+        Initialize the Linear Regression model parameters.
+        """
+        self.weights = None  # Model weights (excluding bias)
+        self.bias = None  # Model bias
+        self.coef_ = None  # Alias for weights
+        self.rank_ = None  # Rank of the augmented X matrix
+        self.singular_ = None  # Singular values of the augmented X matrix
+        self.intercept_ = None  # Alias for bias
+        self.n_features_ = None  # Number of features in the input data
+
+    def fit(self, X, y):
+        """
+        Fit the Linear Regression model to the input data X and target values y.
+
+        :param X: Input data (n_samples, n_features).
+        :param y: Target values (n_samples,).
+        """
+        # Add a bias term to X by appending a column of ones
+        X_bias = np.hstack([np.ones((X.shape[0], 1)), X])
+
+        # Compute the transpose of X_bias
+        X_transpose = X_bias.T
+
+        # Calculate weights and bias using the Normal Equation
+        self.weights = np.linalg.inv(X_transpose @ X_bias) @ X_transpose @ y
+
+        # Separate bias and weights
+        self.bias = self.weights[0]  # First value is the bias
+        self.weights = self.weights[1:]  # Remaining values are the weights
+
+        # Update model attributes
+        self.coef_ = self.weights  # Alias for weights
+        self.intercept_ = self.bias  # Alias for bias
+        self.rank_ = np.linalg.matrix_rank(X_bias)  # Rank of the augmented X matrix
+        self.singular_ = np.linalg.svd(X_bias, compute_uv=False)  # Singular values of X_bias
+        self.n_features_ = X.shape[1]  # Number of features in the input data
+
+    def predict(self, X):
+        """
+        Predict target values using the fitted Linear Regression model.
+
+        :param X: Input data (n_samples, n_features).
+        :return: Predicted values (n_samples,).
+        """
+        # Add a bias term to X by appending a column of ones
+        X_bias = np.hstack([np.ones((X.shape[0], 1)), X])
+
+        # Compute predictions
+        return X_bias @ np.hstack([self.bias, self.weights])
