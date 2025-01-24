@@ -1,26 +1,40 @@
 import numpy as np
-from Algorithms.linear_model import SimpleLinearRegression
-from Metrics.metrics import mean_squared_error, r2_score, adjr2_score
+from Metrics.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
+from Algorithms.linear_model import LinearRegression
 
-# Generate synthetic dataset
-np.random.seed(42)
-X = np.random.rand(100, 1) * 10  # Feature values between 0 and 10
-y = 3 * X + np.random.randn(100, 1) * 2  # Linear relation with some noise
+def create_synthetic_data(n_samples=100, n_features=2, noise=0.1):
+    """
+    Generates a synthetic dataset with a linear relationship.
+    :param n_samples: Number of samples (rows)
+    :param n_features: Number of features (columns)
+    :param noise: Noise level (standard deviation of random noise)
+    :return: (X, y, true_weights, true_bias): Features, target values, true weights, and true bias
+    """
+    np.random.seed(42)  # For reproducibility
+    X = np.random.rand(n_samples, n_features) * 10  # Random features in range [0, 10)
+    true_weights = np.random.uniform(-5, 5, n_features)  # Random true weights
+    true_bias = np.random.uniform(-5, 5)  # Random true bias
+
+    # Linear relationship with added noise
+    y = X @ true_weights + true_bias + np.random.normal(0, noise, size=n_samples)
+    return X, y, true_weights, true_bias
+
+# Generate synthetic data
+X, y, true_weights, true_bias = create_synthetic_data(n_samples=200, n_features=3, noise=0.5)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Train a Simple Linear Regression model
-model = SimpleLinearRegression()
+model = LinearRegression()
 model.fit(X_train, y_train)
 
-# Make predictions on the test set
-y_pred = model.predict(X_test)
+pred = model.predict(X_test)
 
-# Evaluate the model
-mse = mean_squared_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
+mse = mean_squared_error(y_test, pred)
+r2 = r2_score(y_test, pred)
 
-print("Mean Squared Error: {}".format(mse))
 print("R^2 Score: {}".format(r2))
+print("Mean Squared Error: {}".format(mse))
+
+print("Coefficients: {}".format(model.coef_))
 
