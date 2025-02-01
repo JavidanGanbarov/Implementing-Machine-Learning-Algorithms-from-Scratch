@@ -105,6 +105,8 @@ class SimpleLinearRegression:
             cost = self.cost_function(X, y)
             self.cost_history.append(cost)
 
+        return self
+
 
 
 class LinearRegression:
@@ -169,6 +171,8 @@ class LinearRegression:
         self.singular_ = np.linalg.svd(X_bias, compute_uv=False)  # Singular values of X_bias
         self.n_features_ = X.shape[1]  # Number of features in the input data
 
+        return self
+
     def predict(self, X):
         """
         Predict target values using the fitted Linear Regression model.
@@ -181,3 +185,7 @@ class LinearRegression:
 
         # Compute predictions
         return X_bias @ np.hstack([self.bias, self.weights])
+
+    np.matmul
+
+
